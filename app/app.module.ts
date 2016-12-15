@@ -3,7 +3,9 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './components/app.component';
 import {CoursesComponent } from './components/courses.component'
-import {CourseBoxComponent}from './components/app.coursebox.components'
+import {CourseBoxComponent} from './components/app.coursebox.components'
+import {CartComponent} from './components/cart.component'
+
 @NgModule({
   imports : [
     BrowserModule
@@ -11,7 +13,8 @@ import {CourseBoxComponent}from './components/app.coursebox.components'
   declarations:[
     AppComponent,
     CoursesComponent,
-    CourseBoxComponent
+    CourseBoxComponent,
+    CartComponent
   ],
   bootstrap: [ AppComponent]
 })

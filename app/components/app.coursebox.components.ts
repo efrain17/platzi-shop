@@ -1,4 +1,4 @@
-import {Component,Input}from '@angular/core'
+import {Component, Input}from '@angular/core'
 import {Course} from '../common/course'
 import {CartService} from '../services/cart.service'
 
@@ -11,7 +11,7 @@ import {CartService} from '../services/cart.service'
 		<span class="price">
 		  {{course.price | currency : 'USD': true :'1.2-2'}}
 		</span>
-		<button (click)="add(course)>Agregar al carrito</button>
+		<button (click)="add(course)">Agregar al carrito</button>
 	</div>
 	`
 })

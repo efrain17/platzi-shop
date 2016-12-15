@@ -29,8 +29,8 @@ var CartService = (function () {
             };
         }
         else
-            this.courses.quantity +=
-                this.detail.total += course.price;
+            this.courses.quantity += 1;
+        this.detail.total += course.price;
         this.detail.items += 1;
     };
     return CartService;

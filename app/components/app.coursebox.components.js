@@ -26,7 +26,7 @@ __decorate([
 CourseBoxComponent = __decorate([
     core_1.Component({
         selector: 'coursebox',
-        template: "<div class = \"course\">\n\t\t<img [src]=\"course.image\">\n\t\t<h2>{{course.name}}</h2>\n\t\t<span class=\"price\">\n\t\t  {{course.price | currency : 'USD': true :'1.2-2'}}\n\t\t</span>\n\t\t<button (click)=\"add(course)>Agregar al carrito</button>\n\t</div>\n\t"
+        template: "<div class = \"course\">\n\t\t<img [src]=\"course.image\">\n\t\t<h2>{{course.name}}</h2>\n\t\t<span class=\"price\">\n\t\t  {{course.price | currency : 'USD': true :'1.2-2'}}\n\t\t</span>\n\t\t<button (click)=\"add(course)\">Agregar al carrito</button>\n\t</div>\n\t"
     }),
     __metadata("design:paramtypes", [cart_service_1.CartService])
 ], CourseBoxComponent);

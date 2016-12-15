@@ -13,6 +13,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./components/app.component");
 var courses_component_1 = require("./components/courses.component");
 var app_coursebox_components_1 = require("./components/app.coursebox.components");
+var cart_component_1 = require("./components/cart.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -26,7 +27,8 @@ AppModule = __decorate([
         declarations: [
             app_component_1.AppComponent,
             courses_component_1.CoursesComponent,
-            app_coursebox_components_1.CourseBoxComponent
+            app_coursebox_components_1.CourseBoxComponent,
+            cart_component_1.CartComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     }),

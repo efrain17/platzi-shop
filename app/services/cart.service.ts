@@ -28,8 +28,8 @@ export class CartService{
 				price: course.price
 			}
 		}
-		else this.courses.quantity +=
-
+		else this.courses.quantity +=1
+ 
 		this.detail.total += course.price
 		this.detail.items +=1
 	}

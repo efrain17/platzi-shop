@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core'
-import {CartService} from '../service/cart.service'
+import {CartService} from '../services/cart.service'
 
 @Component({
 	selector : 'cart',
@@ -26,10 +26,10 @@ import {CartService} from '../service/cart.service'
 })
 
 export class CartComponent implements OnInit {
-	courses:  any
+	courses: any
 	details: any
 
-	constructor( private CartService: Cartservice) {
+	constructor( private CartService: CartService) {
 
 	} 
 
@@ -39,6 +39,6 @@ export class CartComponent implements OnInit {
 
 	ngOnInit() {
 		this.courses = this.CartService.getCourses()
-		this.details = this.CartService.getDetails()
+		this.details = this.CartService.getDetail()
 	}
 }
