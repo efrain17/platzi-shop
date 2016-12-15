@@ -25,6 +25,10 @@ var ApiService = (function () {
     ApiService.prototype.error = function (error) {
         return Promise.reject(error.message || error);
     };
+    ApiService.prototype.getCourseId = function (id) {
+        return this.getCourse()
+            .then(function (courses) { return courses.find(function (course) { return course.id == id; }); });
+    };
     return ApiService;
 }());
 ApiService = __decorate([

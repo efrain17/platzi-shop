@@ -24,4 +24,9 @@ export class ApiService {
 		return Promise.reject(error.message || error)
 	}
 
+	getCourseId(id:number){
+    return this.getCourse()
+      .then( courses => courses.find( course => course.id == id ));
+  }
+
 }

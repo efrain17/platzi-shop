@@ -10,12 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var cart_service_1 = require("../services/cart.service");
+var router_1 = require("@angular/router");
 var CourseBoxComponent = (function () {
-    function CourseBoxComponent(CartService) {
+    function CourseBoxComponent(CartService, router) {
         this.CartService = CartService;
+        this.router = router;
     }
     CourseBoxComponent.prototype.add = function (course) {
         this.CartService.addToCart(course);
+    };
+    CourseBoxComponent.prototype.gotoDetails = function (course) {
+        var link = ['/course', course.id];
+        this.router.navigate(link);
     };
     return CourseBoxComponent;
 }());
@@ -26,9 +32,10 @@ __decorate([
 CourseBoxComponent = __decorate([
     core_1.Component({
         selector: 'coursebox',
-        template: "<div class = \"course\">\n\t\t<img [src]=\"course.image\">\n\t\t<h2>{{course.name}}</h2>\n\t\t<span class=\"price\">\n\t\t  {{course.price | currency : 'USD': true :'1.2-2'}}\n\t\t</span>\n\t\t<button (click)=\"add(course)\">Agregar al carrito</button>\n\t</div>\n\t"
+        template: "<div class = \"course\">\n\t\t<img [src]=\"course.image\" (click)=\"gotoDetails(course)\">\n\t\t<h2>{{course.name}}</h2>\n\t\t<span class=\"price\">\n\t\t  {{course.price | currency : 'USD': true :'1.2-2'}}\n\t\t</span>\n\t\t<button (click)=\"add(course)\">Agregar al carrito</button>\n\t</div>\n\t"
     }),
-    __metadata("design:paramtypes", [cart_service_1.CartService])
+    __metadata("design:paramtypes", [cart_service_1.CartService,
+        router_1.Router])
 ], CourseBoxComponent);
 exports.CourseBoxComponent = CourseBoxComponent;
 //# sourceMappingURL=app.coursebox.components.js.map
