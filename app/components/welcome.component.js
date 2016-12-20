@@ -9,9 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var auth_service_1 = require("../services/auth.service");
 var WelcomeComponent = (function () {
-    function WelcomeComponent() {
+    function WelcomeComponent(auth) {
+        this.auth = auth;
     }
+    WelcomeComponent.prototype.ngOnInit = function () {
+        this.auth.check();
+    };
     return WelcomeComponent;
 }());
 WelcomeComponent = __decorate([
@@ -19,7 +24,7 @@ WelcomeComponent = __decorate([
         selector: 'welcome',
         template: '<h2>Bienvenido a nuestra tienda en línea</h2>'
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [auth_service_1.AutService])
 ], WelcomeComponent);
 exports.WelcomeComponent = WelcomeComponent;
 //# sourceMappingURL=welcome.component.js.map

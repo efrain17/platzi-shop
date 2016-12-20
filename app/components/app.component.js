@@ -10,18 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var cart_service_1 = require("../services/cart.service");
+var auth_service_1 = require("../services/auth.service");
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(autService) {
+        this.autService = autService;
     }
+    AppComponent.prototype.logout = function () {
+        this.autService.logout();
+    };
+    AppComponent.prototype.ngOnInit = function () {
+        this.autService.check();
+        console.log(this.autService.session);
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n    <header>\n      Cursos Platzi\n    </header>\n    <nav>\n      <a routerLink=\"\">Inicio</a>\n      <a routerLink=\"courses\">Cursos</a>\n    </nav>\n    <section>\n      <router-outlet></router-outlet>\n    </section>\n  ",
-        providers: [cart_service_1.CartService]
+        template: "\n    <header>\n      Cursos Platzi  \n    </header>\n\n    <nav *ngIf=\"this.autService.session\">\n      <a routerLink=\"\">Inicio</a>\n      <a routerLink=\"courses\">Cursos</a>\n    </nav>\n\n    <div>\n      <a *ngIf=\"!autService.session\" routerLink=\"login\">Iniciar Sesion</a>\n      <a *ngIf=\"autService.session\" (click)=\"logout()\">Cerrar Sesion</a>\n    </div>\n\n    <section>\n      <router-outlet></router-outlet>\n    </section>\n  ",
+        providers: [cart_service_1.CartService, auth_service_1.AutService]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [auth_service_1.AutService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

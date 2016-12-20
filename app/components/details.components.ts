@@ -3,6 +3,7 @@ import {ActivatedRoute, Params} from '@angular/router'
 import {Location} from '@angular/common';
 import {Course} from '../common/course'
 import {ApiService} from '../services/api.service'
+import {AutService} from '../services/auth.service'
 
 @Component({
 	 template : `
@@ -27,16 +28,20 @@ export class CourseDetail implements OnInit{
     constructor(
 	  private route: ActivatedRoute,
 	  private location : Location,
-	  private ApiService : ApiService ){
+	  private ApiService : ApiService,
+    private auth:AutService){
 
     }
 
 	ngOnInit(){
+    this.auth.check()
+
 		this.route.params.forEach((params: Params)=>{
 			let id= +params ['id']
 			this.ApiService.getCourseId(id)
 				.then(course=> this.course = course)
 		})
+
 
 	}
 

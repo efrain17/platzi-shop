@@ -12,14 +12,17 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
 var api_service_1 = require("../services/api.service");
+var auth_service_1 = require("../services/auth.service");
 var CourseDetail = (function () {
-    function CourseDetail(route, location, ApiService) {
+    function CourseDetail(route, location, ApiService, auth) {
         this.route = route;
         this.location = location;
         this.ApiService = ApiService;
+        this.auth = auth;
     }
     CourseDetail.prototype.ngOnInit = function () {
         var _this = this;
+        this.auth.check();
         this.route.params.forEach(function (params) {
             var id = +params['id'];
             _this.ApiService.getCourseId(id)
@@ -35,7 +38,8 @@ CourseDetail = __decorate([
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
         common_1.Location,
-        api_service_1.ApiService])
+        api_service_1.ApiService,
+        auth_service_1.AutService])
 ], CourseDetail);
 exports.CourseDetail = CourseDetail;
 //# sourceMappingURL=details.components.js.map

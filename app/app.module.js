@@ -12,12 +12,14 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
+var forms_1 = require("@angular/forms");
 var app_component_1 = require("./components/app.component");
 var courses_component_1 = require("./components/courses.component");
 var app_coursebox_components_1 = require("./components/app.coursebox.components");
 var cart_component_1 = require("./components/cart.component");
 var welcome_component_1 = require("./components/welcome.component");
 var details_components_1 = require("./components/details.components");
+var login_components_1 = require("./components/login.components");
 var routes = [
     {
         path: '',
@@ -30,6 +32,10 @@ var routes = [
     {
         path: 'course/:id',
         component: details_components_1.CourseDetail
+    },
+    {
+        path: 'login',
+        component: login_components_1.LoginComponent
     }
 ];
 var AppModule = (function () {
@@ -42,7 +48,8 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             http_1.HttpModule,
-            router_1.RouterModule.forRoot(routes)
+            router_1.RouterModule.forRoot(routes),
+            forms_1.FormsModule
         ],
         declarations: [
             app_component_1.AppComponent,
@@ -50,7 +57,8 @@ AppModule = __decorate([
             app_coursebox_components_1.CourseBoxComponent,
             cart_component_1.CartComponent,
             welcome_component_1.WelcomeComponent,
-            details_components_1.CourseDetail
+            details_components_1.CourseDetail,
+            login_components_1.LoginComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     }),
